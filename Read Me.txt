@@ -1,0 +1,3 @@
+Read Me
+
+The application is being built with AI. No expectations that it will work. 
