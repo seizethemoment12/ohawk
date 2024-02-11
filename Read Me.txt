@@ -1,3 +1,10 @@
 Read Me
 
 The application is being built with AI. No expectations that it will work. 
+
+
+Dependencies
+@mui/material 
+@emotion/react 
+@emotion/styled
+@mui/icons-material

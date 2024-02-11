@@ -5,8 +5,8 @@ import {
   Grid,
   Button,
   IconButton,
-  CloseIcon,
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 function FullscreenOverlay({ responseData, onClose }) {
   return (
