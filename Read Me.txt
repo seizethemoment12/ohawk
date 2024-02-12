@@ -8,3 +8,4 @@ Dependencies
 @emotion/react 
 @emotion/styled
 @mui/icons-material
+@google/generative-ai
