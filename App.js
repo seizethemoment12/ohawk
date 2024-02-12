@@ -8,6 +8,10 @@ import Header from './components/Header';
 import PanelsContainer from './components/PanelsContainer';
 import FullscreenOverlay from './components/FullscreenOverlay';
 
+/**
+ * Main application component.
+ * @returns {JSX.Element} The rendered application.
+ */
 function App() {
   return (
     <Router>

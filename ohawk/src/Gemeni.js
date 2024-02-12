@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const gemeniApiKey = 'YOUR_gemeni_API_KEY'; // Replace with your actual API key
-const gemeniBaseUrl = 'https://api.openai.com/v1/chat/completions'; //Replace withactual  base url
+const gemeniApiKey = process.env.GEMENI_API_KEY;
+const gemeniBaseUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key='; //Replace withactual  base url
 
 const querygemeni = async (prompt) => {
   try {
