@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { promptGemeni } from './Gemeni.js'; 
+import { promptGemeni } from '../Gemeni.js'; 
 
 function Panel({ data }) {
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState('Loading...');
+  console.log('Panel function called'); 
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await promptGemeni(data.propt);
+      const result = await promptGemeni(data.data);
       setResponse(result);
     };
 
@@ -17,7 +18,7 @@ function Panel({ data }) {
   return (
     <div style={{ width: `${data.size}%` }}>
       <h2>{data.id}</h2>
-      {response ? <p>{response}</p> : <p>Loading...</p>}
+      <p>{response}</p>
     </div>
   );
 }

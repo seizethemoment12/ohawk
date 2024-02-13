@@ -13,6 +13,8 @@ import FullscreenOverlay from './components/FullscreenOverlay';
  * @returns {JSX.Element} The rendered application.
  */
 function App() {
+  console.log('App function called'); 
+
   return (
     <Router>
       <Header />

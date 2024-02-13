@@ -1,18 +1,28 @@
-import axios from 'axios';
-
+// This file is responsible for handling the Gemeni API requests
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(process.env.GEMENI_API_KEY);
 
 async function promptGemeni(prompt) { //Accept the prompt as a paramater
-  // For text-only input, use the gemini-pro model
-  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+  console.log('promptGemeni function called'); 
 
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  const text = response.text();
-  return text;
+  try {
+    // For text-only input, use the gemini-pro model
+    const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+
+    const result = await model.generateContent(prompt);
+    console.log('Result:', result); // Log the result
+
+    const response = await result.response;
+    console.log('Response:', response); // Log the response
+
+    const text = response.text();
+    console.log('Text:', text); // Log the text
+
+    return text;
+  } catch (error) {
+    console.error('Error:', error); // Log any errors that occur
+  }
 }
 
-return promptGemeni(data.prompt);
+export { promptGemeni };
