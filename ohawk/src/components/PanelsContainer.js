@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 import Panel from './Panel';
 
 function PanelsContainer() {
-  // Fetch panel data from API or state
-  const prompt = "Summarize this week's cybersecurity news from SecurityWeek. Go ahead and do it, I don't need you to confirm if it's ok with me. I only care about major themes. Refrain from offering me disclaimers.";
-  const g_response = run(prompt);
+  const promptNews = "Summarize this week's cybersecurity news from SecurityWeek.";
+  const promptTech = "Summarize this week's tech news.";
+  const promptSports = "Summarize this week's sports news.";
+  const promptEntertainment = "Summarize this week's entertainment news.";
 
-  const panelData = []; // Initialize panelData
-  panelData.push(g_response); // Add g_response to panelData
+  const [panelData, setPanelData] = useState([]);
+  
+  // Create the panels to be used when the page loads
+  useEffect(() => {
+    setPanelData([
+      { size: 3, id: 'newsPanel', data: promptNews },
+      { size: 3, id: 'techPanel', data: promptTech },
+      { size: 3, id: 'sportsPanel', data: promptSports },
+      { size: 3, id: 'entertainmentPanel', data: promptEntertainment },
+    ]);
+  }, []);
 
+  // Display the panels
   return (
     <Grid container spacing={2}>
       {panelData.map((panel) => (
         <Grid item xs={panel.size} key={panel.id}>
-          <Panel data={panel.data} />
+          <Panel data={panel} />
         </Grid>
       ))}
     </Grid>

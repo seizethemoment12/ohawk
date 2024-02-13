@@ -1,28 +1,23 @@
-import React from 'react';
-import { Table } from '@mui/material';
-import { run } from 'Gemeni.js';
+import React, { useState, useEffect } from 'react';
+import { promptGemeni } from './Gemeni.js'; 
 
 function Panel({ data }) {
-  // Call the run function to get a response from gemeni
-  const prompt = "Summarize this week's cybersecurity news from SecurityWeek. Go ahead and do it, I don't need you to confirm if it's ok with me. I only care about major themes. Refrain from offering me disclaimers.";
-  const gemeni_response = run(prompt);
+  const [response, setResponse] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await promptGemeni(data.propt);
+      setResponse(result);
+    };
+
+    fetchData();
+  }, [data]);
+
+  // Render the response
   return (
-    <div>
-      <h2>{data.title}</h2>
-      <Table>
-        {/* Render table headers and rows based on data */}
-        <TableHead>
-          <TableRow>
-            {data.headers.map((header, index) => (
-              <TableCell key={index}>{header}</TableCell>
-            ))}
-          </TableRow>
-        </TableHead> {/* Add the closing tag for TableHead */}
-      </Table>
-
-      {/* Display the gemeni_response */}
-      <p>{gemeni_response}</p>
+    <div style={{ width: `${data.size}%` }}>
+      <h2>{data.id}</h2>
+      {response ? <p>{response}</p> : <p>Loading...</p>}
     </div>
   );
 }
