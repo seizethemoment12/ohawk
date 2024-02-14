@@ -15,10 +15,10 @@ function PanelsContainer() {
   // Create the panels to be used when the page loads
   useEffect(() => {
     setPanelData([
-      { size: 3, id: 'newsPanel', data: promptNews },
-      { size: 3, id: 'techPanel', data: promptTech },
-      { size: 3, id: 'sportsPanel', data: promptSports },
-      { size: 3, id: 'entertainmentPanel', data: promptEntertainment },
+      { size: 100, id: 'newsPanel', data: promptNews },
+      { size: 100, id: 'techPanel', data: promptTech },
+      { size: 100, id: 'sportsPanel', data: promptSports },
+      { size: 100, id: 'entertainmentPanel', data: promptEntertainment },
     ]);
   }, []);
 
