@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
+import FullscreenOverlay, { createOverlay } from './FullscreenOverlay.js';
 
 function Header() {
   const [searchTerm, setSearchTerm] = useState('');
-
+  const data = { searchPhrase: searchTerm };
   const handleSearch = () => {
     // Trigger overlay or API call with search term
-  };
+    createOverlay(data);
+    };
 
   return (
     <header>
