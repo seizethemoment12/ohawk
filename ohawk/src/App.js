@@ -28,7 +28,6 @@ function App() {
   const handleOverlayOpen = (searchPhrase) => {
     setOverlayOpen(true);
     console.log('Executing CreateOverlay in App.js. Props are: ', searchPhrase, overlayOpen, handleOverlayClose);
-    //CreateOverlay(searchPhrase, overlayOpen, handleOverlayClose);
     <CreateOverlay 
       searchPhrase={searchPhrase} 
       open={overlayOpen} 
@@ -50,5 +49,3 @@ function App() {
 }
 
 export default App;       
-// Debug code
-// <Route path="/overlay" element={<FullscreenOverlay />} />

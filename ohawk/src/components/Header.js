@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 
 // Header component. Handles search and opens the overlay.
@@ -6,12 +6,6 @@ function Header({ onOpenOverlay, onSearchPhraseChange }) {
   console.log("In Header.js.", onOpenOverlay, onSearchPhraseChange);
 
   const [searchTerm, setSearchTerm] = useState('');
-
- // useEffect(() => {
-    // This code will run after searchTerm has been updated
-  //  console.log('searchTerm has been updated:', searchTerm);
- // }, [searchTerm]); // The second argument is an array of dependencies. The callback will run when any of these values change.
-
  
   // Function to handle search
   const handleSearch = () => {

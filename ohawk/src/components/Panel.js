@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { promptGemeni } from '../Gemeni.js';
 
 function Panel({ data }) {
   const [response, setResponse] = useState('Loading...');
@@ -6,8 +7,8 @@ function Panel({ data }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      //const result = await promptGemeni(data.data); // Disabled while I work on state management so I don't constantly prompt gemeni.
-      const result = "This is a test response";
+      const result = await promptGemeni(data.data, data.id); // Disabled while I work on state management so I don't constantly prompt gemeni.
+      //const result = "This is a test response"; //Debugging to disable call to Gemeni.js
       setResponse(result);
     };
 
