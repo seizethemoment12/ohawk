@@ -1,49 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { promptGemeni } from '../Gemeni.js'; 
-import {
-  Box,
-  Typography,
-  Grid,
-  Button,
-  IconButton,
-} from '@mui/material';
+import React from 'react';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-export function createOverlay({ data, onClose }) {
-  console.log('createOverlay function called');
-  /*
-  const [response, setResponse] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await promptGemeni(data.searchPhrase);
-      setResponse(result);
-    };
+export default function CreateOverlay({ searchPhrase, open, handleClose }) {
+  console.log('CreateOverlay function called within FullscreenOverlay.js');
+  console.log('Props in CreateOverlay:', searchPhrase, open, handleClose);
 
-    fetchData();
-  }, [data]);
-  */
-
-  const response = "This is a test response";
+  const response = searchPhrase;
 
   return (
-    <Box
-    sx={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      zIndex: 10,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center', 
-    }}
-  >
-    <p>{response}</p> // Display the response here
-  </Box>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      maxWidth="md" // 50% of the screen
+      fullWidth
+    >
+      <DialogTitle>
+        <IconButton edge="end" color="inherit" onClick={handleClose} aria-label="close">
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
+      <DialogContent>
+        {response}
+      </DialogContent>
+    </Dialog>
   );
 }
-
-export default createOverlay;

@@ -7,13 +7,15 @@ const genAI = new GoogleGenerativeAI(apiKey);
 async function promptGemeni(prompt) { //Accept the prompt as a paramater
   try {
     // For text-only input, use the gemini-pro model
-    const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+    //const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-    const result = await model.generateContent(prompt);
+    //const result = await model.generateContent(prompt);
 
-    const response = await result.response;
+    //const response = await result.response;
 
-    const text = response.text();
+    //const text = response.text();
+
+    const text = "This is test text. Gemeni is disabled at the moment";
 
     return text;
   } catch (error) {
