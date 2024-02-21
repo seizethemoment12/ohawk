@@ -3,8 +3,7 @@ import { promptGemeni } from '../Gemeni.js';
 
 function Panel({ data }) {
   const [response, setResponse] = useState('Loading...');
-  console.log('Panel function called'); 
-
+  
   useEffect(() => {
     const fetchData = async () => {
       const result = await promptGemeni(data.data, data.id); // Disabled while I work on state management so I don't constantly prompt gemeni.

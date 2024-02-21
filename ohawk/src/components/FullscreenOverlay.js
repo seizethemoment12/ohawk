@@ -7,8 +7,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 export default function CreateOverlay({ searchPhrase, open, handleClose }) {
-  console.log('CreateOverlay function called within FullscreenOverlay.js');
-  console.log('Props in CreateOverlay:', searchPhrase, open, handleClose);
 
   const response = searchPhrase;
 

@@ -14,8 +14,6 @@ async function promptGemeni(prompt, panelId = null) {
       return "Successfully removed storedData from localStorage. Gemeni is disabled at the moment."
     }
 
-    localStorage.removeItem('storedData');
-
     if (panelId !== null) {
       // Load storedData from localStorage
       const data = localStorage.getItem('storedData');
@@ -24,22 +22,29 @@ async function promptGemeni(prompt, panelId = null) {
       const key = `${panelId}_${prompt}`;
 
       if (storedData[key] && new Date(storedData[key].stored_date) > twentyFourHoursAgo) {
-        // If the stored prompt exists and the stored date is within the past 24 hours, return the stored response
+        // If the stored prompt exists and the stored date is within the past 24 hours, 
+        // return the stored response
         console.log('Storage exists');
         return storedData[key].stored_response;
       }
+      else{
+        console.log('Storage does not exist');
+      }
     }
 
+    let text = "Initial Definition";
+
     // Debugging wrapper to facilitate disabling a call to Gemeni.js
-    if (1==2) {
-    // Send the prompt to Gemeni and store the response
-    const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMENI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro"});
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    if (1==1) {
+      // Send the prompt to Gemeni and store the response
+      console.log('Prompting Gemeni');
+      const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMENI_API_KEY);
+      const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      text = response.text();
     }else{
-      const text = "This is test text. Gemeni is disabled at the moment";
+      text = "This is test text. Gemeni is disabled at the moment";
     }
 
     if (panelId !== null) {

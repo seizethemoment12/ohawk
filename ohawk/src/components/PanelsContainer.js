@@ -3,8 +3,7 @@ import { Grid } from '@mui/material';
 import Panel from './Panel';
 
 function PanelsContainer() {
-  console.log('PanelContainer function called'); 
-
+  
   const promptNews = "Summarize this week's cybersecurity news from SecurityWeek.";
   const promptTech = "Summarize this week's tech news.";
   const promptSports = "Summarize this week's sports news.";

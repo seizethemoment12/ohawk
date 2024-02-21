@@ -17,8 +17,7 @@ function App() {
 
   // state to store the search phrase
   const [searchPhrase, setSearchPhrase] = useState('');
-  console.log('searchPhrase in Appjs:', searchPhrase);
-  
+
   // Function to close the overlay
   const handleOverlayClose = () => {
     setOverlayOpen(false);
@@ -27,7 +26,6 @@ function App() {
   // Function to open the overlay
   const handleOverlayOpen = (searchPhrase) => {
     setOverlayOpen(true);
-    console.log('Executing CreateOverlay in App.js. Props are: ', searchPhrase, overlayOpen, handleOverlayClose);
     <CreateOverlay 
       searchPhrase={searchPhrase} 
       open={overlayOpen} 
